@@ -6,7 +6,7 @@ const path = require('path');
 
 require('./db')
 
-dotenv.config()
+require("dotenv").config();
 
 const PORT = process.env.PORT || 8080
 
