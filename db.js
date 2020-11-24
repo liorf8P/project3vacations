@@ -1,29 +1,47 @@
+const mysql = require('mysql')
 
-const mysql =  = mysql.createPool({
-  connectionLimit : 100,
-  host            : 'eu-cdbr-west-03.cleardb.net',
-  user            : 'b6a264fdd23f8c',
-  password        : '848c23b5',
-  database        : 'heroku_59a591344fd601f'
-});
 
-pool.query('SELECT * FROM vacations;', function (error, results, fields) {
-  if (error) throw error;
-  console.log('The solution is: ', results[0].solution);
-});
 
-// con.connect((err) => {
-//     if (err) {
-//         console.log("error connection" + err.stack)
-//         return
-//     }
-//     console.log('connected to my sql!@!@!@!!@!@!@!@!@!@!@!!@!@!!@!!!@!@!!@')
-// })
+
+
+// var pool  = mysql.createPool({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'liorp_project3'
+// });
+
+// pool.getConnection(function(err, connection) {
+//     connection.query( 'SELECT * FROM vacations', function(err, rows) {
+
+//       console.log(pool._freeConnections.indexOf(connection)); // -1
+
+//       connection.release();
+
+//       console.log(pool._freeConnections.indexOf(connection)); // 0
+
+//    });
+// });
+
+const con = mysql.createConnection({
+    host: 'eu-cdbr-west-03.cleardb.net',
+    user: 'b3634880b4095d',
+    password: '11084ddabd65d4c',
+    database: 'heroku_ca3e7c1dbef5b5e'
+})
+
+con.connect((err) => {
+    if (err) {
+        console.log("error connection" + err.stack)
+        return
+    }
+    console.log('connected to my sql!@!@!@!!@!@!@!@!@!@!@!!@!@!!@!!!@!@!!@')
+})
 
 
 const myQuery = (q) => {
     return new Promise((resolve, reject) => {
-        pool.query(q, (err, results) => {
+        con.query(q, (err, results) => {
             if (err) {
                 reject(err)
             } else {
