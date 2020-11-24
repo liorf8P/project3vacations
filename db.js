@@ -24,10 +24,10 @@ const mysql = require('mysql')
 // });
 
 const con = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'liorp_project3'
+    host: 'eu-cdbr-west-03.cleardb.net',
+    user: 'b6a264fdd23f8c',
+    password: '848c23b5',
+    database: 'heroku_59a591344fd601f'
 })
 
 con.connect((err) => {
@@ -41,7 +41,7 @@ con.connect((err) => {
 
 const myQuery = (q) => {
     return new Promise((resolve, reject) => {
-        con.con(q, (err, results) => {
+        con.query(q, (err, results) => {
             if (err) {
                 reject(err)
             } else {
