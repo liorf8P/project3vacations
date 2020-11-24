@@ -12,7 +12,7 @@ var pool  = mysql.createPool({
 });
 
 pool.getConnection(function(err, connection) {
-    connection.query( 'SELECT something FROM sometable', function(err, rows) {
+    connection.query( 'SELECT * FROM vacations', function(err, rows) {
 
       console.log(pool._freeConnections.indexOf(connection)); // -1
 
