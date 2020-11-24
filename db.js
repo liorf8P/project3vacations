@@ -41,7 +41,7 @@ con.connect((err) => {
 
 const myQuery = (q) => {
     return new Promise((resolve, reject) => {
-        con.pool(q, (err, results) => {
+        con.con(q, (err, results) => {
             if (err) {
                 reject(err)
             } else {
