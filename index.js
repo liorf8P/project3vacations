@@ -6,7 +6,7 @@ require('./db')
 
 dotenv.config()
 
-
+const PORT = 8080 || process.env.PORT
 
 app.use(cors())
 app.use(express.json())
@@ -27,6 +27,6 @@ app.get('/*', (req, res) => {
 
 
 
-app.listen(1000, () => console.log("run on port 1000"))
+app.listen(PORT, () => console.log(`run on port ${PORT}`))
 
 
