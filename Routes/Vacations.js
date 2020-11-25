@@ -2,7 +2,7 @@ const router = require('express').Router()
 const myQuery = require('../db')
 const VerifyUser = require('../verifyuser')
 
-router.get('/try', VerifyUser, async (req, res) => { // שירוץ תמיד באירוקו
+router.get('/try', async (req, res) => { // שירוץ תמיד באירוקו
     try {
         const vacations = `SELECT * from vacations;`
         const data = await myQuery(vacations)
