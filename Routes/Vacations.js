@@ -2,16 +2,16 @@ const router = require('express').Router()
 const myQuery = require('../db')
 const VerifyUser = require('../verifyuser')
 
-// router.get('/', VerifyUser, async (req, res) => {
-//     try {
-//         const vacations = `SELECT * from vacations;`
-//         const data = await myQuery(vacations)
-//         res.json(data)
-//     } catch (err) {
-//         console.log(err)
-//         res.json({ err })
-//     }
-// });
+router.get('/try', VerifyUser, async (req, res) => { // שירוץ תמיד באירוקו
+    try {
+        const vacations = `SELECT * from vacations;`
+        const data = await myQuery(vacations)
+        res.json(data)
+    } catch (err) {
+        console.log(err)
+        res.json({ err })
+    }
+});
 
 
 router.post('/add', async (req, res) => {
